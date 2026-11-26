@@ -1,0 +1,154 @@
+/* Perícias — paleta tirada da logomarca Larissa Mendes · Perícia Contábil */
+:root {
+  --marca: #C5215F;          /* framboesa da logo */
+  --marca-forte: #9E1A4C;    /* botão pressionado, links */
+  --marca-suave: #F7E8EE;    /* fundo de item ativo */
+  --cinza-logo: #A2A0A1;     /* só linhas e ícones inativos */
+  --texto: #2B2729;          /* grafite */
+  --texto-2: #5F5D5E;        /* textos secundários */
+  --rose: #E7E0E4;           /* cabeçalhos e cartões, o mesmo tom das tabelas das petições */
+  --fundo: #FFFFFF;
+  --fundo-2: #FAF7F8;
+  --linha: #E7E0E4;
+  --cartao: #FFFFFF;
+  --sobre-marca: #FFFFFF;
+  /* alertas: fixos, sempre acompanhados de texto */
+  --vermelho: #C4291C; --vermelho-suave: #FDECEA;
+  --laranja: #B65A00;  --laranja-suave: #FFF1E0;
+  --amarelo: #8A6A00;  --amarelo-suave: #FFF8D6;
+  --verde: #1E7A3C;    --verde-suave: #E6F4EA;
+  --raio: 14px;
+  --sombra: 0 1px 2px rgba(43, 39, 41, .06), 0 4px 14px rgba(43, 39, 41, .06);
+  --topo: env(safe-area-inset-top, 0px);
+  --base: env(safe-area-inset-bottom, 0px);
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --marca: #E86A97; --marca-forte: #F08BB0; --marca-suave: #3A2430;
+    --cinza-logo: #6F6C6D; --texto: #F2EEF0; --texto-2: #B9B4B6;
+    --rose: #2E292C; --fundo: #1C1A1B; --fundo-2: #161415; --linha: #332E31; --cartao: #242123;
+    --sobre-marca: #1C1A1B;
+    --vermelho: #FF8A80; --vermelho-suave: #3B1F1D;
+    --laranja: #FFB060;  --laranja-suave: #3A2A17;
+    --amarelo: #F2D35B;  --amarelo-suave: #34301A;
+    --verde: #7BD394;    --verde-suave: #1B3224;
+    --sombra: none;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--fundo-2); color: var(--texto);
+  font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { line-height: 1.2; margin: 0 0 .5rem; }
+h1 { font-size: 1.5rem; font-weight: 700; }
+h2 { font-size: 1.1rem; font-weight: 650; }
+p { margin: 0 0 .75rem; }
+a { color: var(--marca-forte); }
+.discreto { color: var(--texto-2); font-size: .92rem; }
+.oculto { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- formulários e botões ---------- */
+label { display: block; font-weight: 600; font-size: .92rem; margin: 0 0 .35rem; }
+.campo { margin-bottom: 1rem; }
+input {
+  width: 100%; font: inherit; font-size: 16px; /* 16px evita o zoom automático do iPhone */
+  padding: .75rem .85rem; border: 1px solid var(--linha); border-radius: 10px;
+  background: var(--cartao); color: var(--texto);
+}
+input:focus { outline: 2px solid var(--marca); outline-offset: 1px; border-color: transparent; }
+.senha { position: relative; }
+.senha input { padding-right: 4.8rem; }
+.senha button {
+  position: absolute; right: .35rem; top: 50%; transform: translateY(-50%);
+  background: none; border: 0; color: var(--marca-forte); font: inherit; font-size: .88rem; font-weight: 600;
+  padding: .5rem .6rem; cursor: pointer;
+}
+.botao {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  min-height: 48px; padding: .7rem 1.2rem; border-radius: 12px; border: 0; cursor: pointer;
+  font: inherit; font-weight: 650; background: var(--marca); color: var(--sobre-marca);
+}
+.botao:active { background: var(--marca-forte); }
+.botao[disabled] { opacity: .6; cursor: default; }
+.botao.largo { width: 100%; }
+.botao.secundario { background: var(--cartao); color: var(--texto); border: 1px solid var(--linha); }
+.botao.secundario:active { background: var(--rose); }
+.erro {
+  background: var(--vermelho-suave); color: var(--vermelho); border-radius: 10px;
+  padding: .7rem .85rem; margin-bottom: 1rem; font-size: .95rem;
+}
+.ok {
+  background: var(--verde-suave); color: var(--verde); border-radius: 10px;
+  padding: .7rem .85rem; margin-bottom: 1rem; font-size: .95rem;
+}
+
+/* ---------- entrar e primeiro acesso ---------- */
+.entrada {
+  min-height: 100vh; min-height: 100dvh; display: flex; align-items: center; justify-content: center;
+  padding: calc(1.5rem + var(--topo)) 1.25rem calc(1.5rem + var(--base)); background: var(--fundo);
+}
+.entrada-caixa { width: 100%; max-width: 380px; }
+.entrada-logo { display: block; width: 72%; max-width: 260px; margin: 0 auto 2rem; height: auto; }
+.entrada h1 { font-size: 1.25rem; text-align: center; margin-bottom: 1.25rem; }
+.entrada .rodape { text-align: center; margin-top: 1.25rem; }
+.regras { margin: -.4rem 0 1rem; padding: 0; list-style: none; color: var(--texto-2); font-size: .88rem; }
+.regras li.cumprida { color: var(--verde); }
+
+/* ---------- estrutura do app ---------- */
+.app { min-height: 100vh; min-height: 100dvh; }
+.topo {
+  position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: .65rem;
+  padding: calc(.7rem + var(--topo)) 1rem .7rem; background: var(--fundo); border-bottom: 1px solid var(--linha);
+}
+.topo img { width: 30px; height: 30px; }
+.topo .nome { font-weight: 700; letter-spacing: .01em; }
+.topo .nome small { display: block; font-weight: 500; font-size: .75rem; color: var(--texto-2); letter-spacing: .08em; text-transform: uppercase; }
+.conteudo { padding: 1.25rem 1rem calc(6rem + var(--base)); max-width: 980px; margin: 0 auto; }
+
+.menu {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 6; display: flex;
+  background: var(--fundo); border-top: 1px solid var(--linha); padding-bottom: var(--base);
+}
+.menu a {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: .15rem;
+  padding: .55rem .2rem .5rem; color: var(--texto-2); text-decoration: none; font-size: .72rem; font-weight: 600;
+  min-height: 56px;
+}
+.menu a svg { width: 24px; height: 24px; }
+.menu a.ativo { color: var(--marca); }
+
+@media (min-width: 900px) {
+  .app { display: grid; grid-template-columns: 240px 1fr; grid-template-rows: auto 1fr; }
+  .topo { grid-column: 1 / -1; }
+  .menu {
+    position: sticky; top: 61px; align-self: start; height: calc(100vh - 61px); flex-direction: column;
+    border-top: 0; border-right: 1px solid var(--linha); padding: 1rem .75rem; gap: .25rem;
+  }
+  .menu a { flex: none; flex-direction: row; gap: .75rem; font-size: .95rem; padding: .7rem .85rem; border-radius: 10px; min-height: 0; }
+  .menu a.ativo { background: var(--marca-suave); }
+  .conteudo { padding: 2rem 2rem 3rem; margin: 0; }
+}
+
+/* ---------- cartões ---------- */
+.cartao {
+  background: var(--cartao); border: 1px solid var(--linha); border-radius: var(--raio);
+  padding: 1.1rem 1.1rem 1rem; box-shadow: var(--sombra); margin-bottom: 1rem;
+}
+.cartao h2 { margin-bottom: .6rem; }
+.etiqueta {
+  display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  background: var(--rose); color: var(--texto); border-radius: 999px; padding: .2rem .6rem; margin-bottom: .6rem;
+}
+.lista-simples { margin: 0; padding-left: 1.1rem; }
+.lista-simples li { margin-bottom: .35rem; }
+.passos { margin: 0; padding-left: 1.3rem; }
+.passos li { margin-bottom: .5rem; }
+.linha-info { display: flex; justify-content: space-between; gap: 1rem; padding: .55rem 0; border-bottom: 1px solid var(--linha); }
+.linha-info:last-child { border-bottom: 0; }
+.linha-info span:first-child { color: var(--texto-2); }
+.carregando { padding: 3rem 1rem; text-align: center; color: var(--texto-2); }
