@@ -13,7 +13,7 @@
     {
       "binding": "DB",
       "database_name": "pericias-db",
-      "database_id": "b2799cb4-d1d9-4cc2-bdc0-9171940e1143",
+      "database_id": "207f9f00-c35a-40e7-9baf-5964ccc0156a",
       "migrations_dir": "migrations"
     }
   ]

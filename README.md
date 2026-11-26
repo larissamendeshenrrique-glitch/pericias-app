@@ -56,7 +56,7 @@ bash scripts/teste-local.sh                              # testes do servidor (b
 
 `scripts/seed-local.sql` cria dados só para teste. Não use em produção.
 
-## Não mexer
+## Contas
 
-`nova-forma-app`, `nova-forma-db`, `nova-forma-arquivos`, `chave-mestra`, `controle-imoveis-db` e
-`chave-mestra-arquivos`, na mesma conta do Cloudflare, pertencem a outros projetos.
+O app fica nas contas próprias da Larissa: GitHub `larissamendeshenrrique-glitch` e Cloudflare (banco `pericias-db`,
+id `207f9f00-c35a-40e7-9baf-5964ccc0156a`). Não tem nenhuma ligação com a Nova Forma.
